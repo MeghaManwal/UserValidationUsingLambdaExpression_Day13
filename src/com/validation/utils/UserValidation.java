@@ -9,7 +9,7 @@ public class UserValidation {
 	public static boolean isValidFirstname(String firstname) {
 	
 	        String pattern1="^[A-Z]{1}[A-Z a-z]{2,}$";
-	        Predicate<String> predicate=p->firstname.matches(pattern1);
+	        Predicate<String> predicate=p->p.matches(pattern1);
 	        boolean value=predicate.test(firstname);
 	        return value; 
 	}
@@ -17,7 +17,7 @@ public class UserValidation {
         public static boolean isValidLastname(String lastname) {
 	
 	        String pattern2="^[A-Z]{1}[A-Z a-z]{2,}$";
-	        Predicate<String> predicate=p->lastname.matches(pattern2);
+	        Predicate<String> predicate=p->p.matches(pattern2);
 	        boolean value=predicate.test(lastname);
 	        return value; 
 	}
@@ -25,7 +25,7 @@ public class UserValidation {
         public static boolean isValidEmailID(String emailId) {
 
 	        String pattern3="^[A-Z a-z 0-9]+([._+-][0-9 a-z A-Z]+)*@[0-9 a-z A-Z]+.[a-z A-Z]{2,3}([.][a-z A-Z]{2})*$";
-	        Predicate<String> predicate=p->emailId.matches(pattern3);
+	        Predicate<String> predicate=p->p.matches(pattern3);
 	        boolean value=predicate.test(emailId);
 	        return value;
         }
@@ -34,15 +34,15 @@ public class UserValidation {
         public static boolean isValidPhoneNumb(String phoneNumber) {
 
 	        String pattern4="^[+][0-9]{1,}\\s?[1-9]{1}[0-9]{9}$";
-	        Predicate<String> predicate=p->phoneNumber.matches(pattern4);
+	        Predicate<String> predicate=p->p.matches(pattern4);
 	        boolean value=predicate.test(phoneNumber);
 	        return value;
         }
 
         public static boolean isValidPassworD(String password) {
 
-	        String pattern5="^(?=[0-9 A-Z a-z !@#$%^&*();:]{8,}$)(?=.*?[A-Z]{1,})(?=.*?[0-9]{1,})(?=.*?[!@#$%^&*();:]{1,}).*$";
-	        Predicate<String> predicate=p->password.matches(pattern5);
+	        String pattern5="^(?=[0-9 A-Z a-z !@#$%^&*();:]{8,}$)(?=.*[A-Z]{1,})(?=.*[0-9]{1,})(?=.*[!@#$%^&*();:]{1,}).*$";
+	        Predicate<String> predicate=p->p.matches(pattern5);
 	        boolean value=predicate.test(password);
 	        return value;
         }
@@ -50,7 +50,7 @@ public class UserValidation {
         
         public static void main(String[] args) {
     		
-        	User s=new User();
+            User s=new User();
             Scanner sc=new Scanner(System.in);
 
             System.out.println("Enter the FirstName: ");
